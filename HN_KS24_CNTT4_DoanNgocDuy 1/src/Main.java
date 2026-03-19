@@ -17,7 +17,7 @@ public class Main {
             try{
                 choice = Integer.parseInt(sc.nextLine());
             }catch (NumberFormatException e){
-                System.out.println(e.getMessage());
+                System.out.println("\n" + e.getMessage());
                 choice = 0;
             }
 
