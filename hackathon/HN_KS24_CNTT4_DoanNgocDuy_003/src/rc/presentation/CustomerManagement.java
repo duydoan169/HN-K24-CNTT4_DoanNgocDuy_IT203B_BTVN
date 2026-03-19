@@ -30,9 +30,14 @@ public class CustomerManagement {
                     customerBusiness.displayCustomers();
                     break;
                 case "2":
-                    Customer newCustomer = new Customer();
-                    newCustomer.inputData(sc);
-                    customerBusiness.addCustomer(newCustomer);
+                    String continueinput = "y";
+                    while(continueinput.equalsIgnoreCase("y")){
+                        Customer newCustomer = new Customer();
+                        newCustomer.inputData(sc);
+                        customerBusiness.addCustomer(newCustomer);
+                        System.out.println("\nTiếp tục nhập? (y to continue): ");
+                        continueinput = sc.nextLine().trim();
+                    }
                     break;
                 case "3":
                     System.out.print("Nhập id: ");
