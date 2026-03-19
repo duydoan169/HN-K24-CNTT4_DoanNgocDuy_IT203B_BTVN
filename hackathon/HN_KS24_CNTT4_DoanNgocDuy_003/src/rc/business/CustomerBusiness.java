@@ -101,14 +101,14 @@ public class CustomerBusiness {
         System.out.println("Sửa thông tin thành công");
     }
 
-    public void removeCustomer(String id){
+    public void removeCustomer(String id) {
         int oldLength = customerList.size();
 
-        customerList = customerList.stream().filter(customer -> customer.getCustomerId().equals(id)).collect(Collectors.toList());
+        customerList = customerList.stream().filter(customer -> !customer.getCustomerId().equals(id)).collect(Collectors.toList());
 
-        if(oldLength == customerList.size()){
+        if (oldLength == customerList.size()) {
             System.out.println("Mã khách hàng không tồn tại");
-        }else {
+        } else {
             System.out.println("Xóa khách hàng thành công");
         }
     }
