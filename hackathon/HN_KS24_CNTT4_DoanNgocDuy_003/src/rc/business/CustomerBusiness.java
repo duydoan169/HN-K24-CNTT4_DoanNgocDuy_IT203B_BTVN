@@ -91,7 +91,7 @@ public class CustomerBusiness {
             System.out.print("Nhập loại khách hàng (Cá nhân | Doanh nghiệp | Ưu đãi): ");
             String customerType = sc.nextLine().trim();
             if (customerType.equalsIgnoreCase("cá nhân") || customerType.equalsIgnoreCase("doanh nghiệp") || customerType.equalsIgnoreCase("ưu đãi")){
-                customer.setPhone(customerType);
+                customer.setCustomerType(customerType);
                 break;
             }else if(customerType.isEmpty()) {
                 break;
