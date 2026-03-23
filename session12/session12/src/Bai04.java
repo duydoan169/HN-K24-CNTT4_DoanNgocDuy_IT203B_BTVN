@@ -5,8 +5,6 @@ import java.sql.SQLException;
 
 public class Bai04 {
     /*
-    PHẦN 1 – PHÂN TÍCH (NGẮN)
-
     Khi dùng Statement và nối chuỗi SQL trong vòng lặp, Database Server phải:
     - Parse câu SQL
     - Kiểm tra cú pháp

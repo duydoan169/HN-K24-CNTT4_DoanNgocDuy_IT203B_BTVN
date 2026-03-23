@@ -5,8 +5,6 @@ import java.sql.SQLException;
 
 public class Bai02 {
     /*
-    PHÂN TÍCH (NGẮN GỌN)
-
     Statement nối chuỗi SQL nên số double bị phụ thuộc Locale của hệ điều hành
     (37.5 hoặc 37,5), dễ gây lỗi cú pháp SQL.
     PreparedStatement dùng setDouble(), setInt() để truyền giá trị theo kiểu dữ liệu,
