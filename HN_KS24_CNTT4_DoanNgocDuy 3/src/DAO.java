@@ -1,7 +1,7 @@
 import java.sql.*;
 
 public class DAO {
-    public static void transaction(String senderId, String receiverId, double amount) throws SQLException {
+    public static void transaction(String senderId, String receiverId, double amount) throws Exception {
         Connection conn = null;
         try {
             conn = DBContext.getConnection();
@@ -38,11 +38,9 @@ public class DAO {
             cstmt.setDouble(2, -amount);
             cstmt.execute();
 
-            String str2 = "{CALL sp_UpdateBalance(?, ?)}";
-            CallableStatement cstmt2 = conn.prepareCall(str2);
-            cstmt2.setString(1, receiverId);
-            cstmt2.setDouble(2, amount);
-            cstmt2.execute();
+            cstmt.setString(1, receiverId);
+            cstmt.setDouble(2, amount);
+            cstmt.execute();
 
             conn.commit();
 
