@@ -24,6 +24,10 @@ public class DAO {
             double senderBalance = rsCheck1.getDouble("Balance");
             double receiverBalance = rsCheck2.getDouble("Balance");
 
+            if (amount <= 0) {
+                throw new Exception("So tien phai lon hon 0");
+            }
+
             if (senderBalance < amount) {
                 throw new Exception("So du tai khoan khong du");
             }
@@ -31,13 +35,13 @@ public class DAO {
             String str = "{CALL sp_UpdateBalance(?, ?)}";
             CallableStatement cstmt = conn.prepareCall(str);
             cstmt.setString(1, senderId);
-            cstmt.setDouble(2, senderBalance - amount);
+            cstmt.setDouble(2, -amount);
             cstmt.execute();
 
             String str2 = "{CALL sp_UpdateBalance(?, ?)}";
             CallableStatement cstmt2 = conn.prepareCall(str2);
             cstmt2.setString(1, receiverId);
-            cstmt2.setDouble(2, receiverBalance + amount);
+            cstmt2.setDouble(2, amount);
             cstmt2.execute();
 
             conn.commit();
